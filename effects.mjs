@@ -1,5 +1,6 @@
 const hues=['#e69576','#a4d3e8','#a4bd82','#e1c77e','#b09cdb','#e0e6df','#ecc487','#edc88e','#f4e1a0'];
-const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Gameplay cues stay visible regardless of browser/OS motion preferences.
+const reduced=()=>false;
 export const motionTime=(action=null)=>reduced()?60:(action?400:520);
 export function captureStones(board){return new Map([...board.querySelectorAll('.tile')].map(el=>[el.dataset.uid,el.getBoundingClientRect()]));}
 export function animateStones(board,oldPositions,action=null){const bounds=board.getBoundingClientRect();const cells=[...board.querySelectorAll('.tile')];const first=cells[0]?.getBoundingClientRect(),second=cells[1]?.getBoundingClientRect(),row2=cells[6]?.getBoundingClientRect();const px=second&&first?second.left-first.left:bounds.width/6,py=row2&&first?row2.top-first.top:bounds.height/7;
