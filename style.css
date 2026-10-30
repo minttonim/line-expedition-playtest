@@ -127,3 +127,10 @@
 @keyframes feverFramePulse{from{filter:hue-rotate(0);opacity:.65}to{filter:hue-rotate(100deg);opacity:1}}
 @keyframes feverBoardGlow{from{box-shadow:0 0 12px #ff81b8aa,inset 0 0 8px #81eaff55}to{box-shadow:0 0 25px #a393ffdd,inset 0 0 16px #ffe08b77}}
 @keyframes feverBadgeBeat{from{transform:scale(1)}to{transform:scale(1.07);background:#a24363ed}}
+
+/* Feedback uses separate transient positions, without reserving board space. */
+.puzzle-pop.combo,.puzzle-pop.score,.puzzle-pop.skill{margin-top:0}
+.puzzle-pop.combo{font-size:10cqw;line-height:1.1;animation:comboClearExit .7s ease both}
+.puzzle-pop.skill{font-size:6.5cqw;line-height:1.1;animation:comboClearExit .7s ease both}
+.puzzle-pop.score .score-recipe{max-height:2.5em;overflow:hidden}
+@keyframes comboClearExit{0%{transform:translateX(-30%) scale(.7);opacity:0}20%,72%{transform:translateX(0) scale(1);opacity:1}100%{transform:translateX(45%) scale(.95);opacity:0}}
