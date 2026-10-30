@@ -5,7 +5,7 @@ export const PREP_SKILLS=Object.freeze([
 ]);
 export const SKILLS=Object.freeze([
  {name:'화염 폭발',cooldown:8,color:'#f1a26f',axis:'color',description:'판 전체의 빨간 불 블록을 모두 제거'},
- {name:'물결 쇄도',cooldown:10,color:'#91def1',axis:'column',description:'무작위 열의 일반 돌을 물로 변환'},
+ {name:'물결 쇄도',cooldown:10,color:'#91def1',axis:'column',description:'무작위 세로 한 줄을 물결로 제거'},
  {name:'관통 사격',cooldown:9,color:'#bddb86',axis:'column',description:'무작위 열을 화살로 관통해 블록 제거'}
 ]);
 export const heroForColor=color=>[0,1,2,1,2,0][color];
@@ -15,4 +15,4 @@ export function skillAvailability(gauge,readyAt,now){const cooldown=Math.max(0,r
 
 export function applyPuzzlePlan(board,ids,plan){const next=board.slice(),nextIds=ids.slice();if(plan.kind==='convert'){for(const i of plan.cells)next[i]=plan.color;}else for(let k=0;k<plan.cells.length;k++){next[plan.cells[k]]=board[plan.sources[k]];nextIds[plan.cells[k]]=ids[plan.sources[k]];}return{board:next,ids:nextIds};}
 
-export function planTargetSkill(hero,phase,board,ids,index,reserved=new Set(),columns=6){const free=i=>!reserved.has(ids[i]);if(hero===0&&phase==='battle'){const cells=board.map((_,i)=>i).filter(i=>board[i]===0&&free(i));return cells.length?{hero,phase,kind:'clear',axis:'color',color:0,cells,index:cells[0]}:null;}const row=Math.floor(index/columns),col=index%columns;const axis=phase==='prep'?'row':SKILLS[hero].axis;const range=board.map((_,i)=>i).filter(i=>(axis==='row'?Math.floor(i/columns)===row:i%columns===col)&&free(i));if(phase==='prep'&&hero===2){const cells=range.filter(i=>board[i]<6);if(cells.length<2)return null;const sources=cells.slice().sort((a,b)=>(board[a]===2?-1:board[a])-(board[b]===2?-1:board[b])||a-b);if(cells.every((i,k)=>i===sources[k]))return null;return{hero,phase,kind:'reorder',axis,row,cells,sources,index};}if(hero===1&&phase==='battle'){const cells=range.filter(i=>board[i]<6&&board[i]!==1);return cells.length?{hero,phase,kind:'convert',axis,col,cells,color:1,index}:null;}return range.length?{hero,phase,kind:'clear',axis,cells:range,index}:null;}
+export function planTargetSkill(hero,phase,board,ids,index,reserved=new Set(),columns=6){const free=i=>!reserved.has(ids[i]);if(hero===0&&phase==='battle'){const cells=board.map((_,i)=>i).filter(i=>board[i]===0&&free(i));return cells.length?{hero,phase,kind:'clear',axis:'color',color:0,cells,index:cells[0]}:null;}const row=Math.floor(index/columns),col=index%columns;const axis=phase==='prep'?'row':SKILLS[hero].axis;const range=board.map((_,i)=>i).filter(i=>(axis==='row'?Math.floor(i/columns)===row:i%columns===col)&&free(i));if(phase==='prep'&&hero===2){const cells=range.filter(i=>board[i]<6);if(cells.length<2)return null;const sources=cells.slice().sort((a,b)=>(board[a]===2?-1:board[a])-(board[b]===2?-1:board[b])||a-b);if(cells.every((i,k)=>i===sources[k]))return null;return{hero,phase,kind:'reorder',axis,row,cells,sources,index};}return range.length?{hero,phase,kind:'clear',axis,cells:range,index}:null;}
