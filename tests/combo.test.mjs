@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createComboState,comboCount,beginComboProcessing,addComboHit,endComboProcessing} from '../combo.mjs';
+test('long clearing and falling never break a cascade; four full seconds begin on settlement',()=>{const c=createComboState();beginComboProcessing(c,0);assert.equal(addComboHit(c,100),1);assert.equal(addComboHit(c,12000),2);assert.equal(comboCount(c,25000),2);endComboProcessing(c,30000);assert.equal(comboCount(c,34000),2);assert.equal(comboCount(c,34001),0);});
+test('overlapping skill and normal resolution wait for the final operation',()=>{const c=createComboState();beginComboProcessing(c,0);addComboHit(c,10);beginComboProcessing(c,100);assert.equal(addComboHit(c,5000),2);endComboProcessing(c,6000);assert.equal(comboCount(c,17000),2);endComboProcessing(c,20000);assert.equal(comboCount(c,23999),2);assert.equal(comboCount(c,24001),0);});
+test('an already expired combo is not revived when a new move starts',()=>{const c=createComboState();addComboHit(c,0);beginComboProcessing(c,5000);assert.equal(addComboHit(c,6000),1);endComboProcessing(c,7000);assert.equal(comboCount(c,11001),0);});
+test('nonmatching processing preserves remaining grace without granting a fresh window',()=>{const c=createComboState();addComboHit(c,0);beginComboProcessing(c,3000);endComboProcessing(c,10000);assert.equal(comboCount(c,10999),1);assert.equal(comboCount(c,11001),0);});
+test('pausing while idle or while busy preserves the combo without counting pause time',()=>{const c=createComboState();addComboHit(c,0);beginComboProcessing(c,2000);assert.equal(comboCount(c,90000),1);endComboProcessing(c,100000);assert.equal(comboCount(c,101999),1);assert.equal(comboCount(c,102001),0);});
