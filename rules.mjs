@@ -1,4 +1,4 @@
-import {matchingShapeRecipes} from './recipes.mjs?v=action69';
+import {matchingShapeRecipes} from './recipes.mjs?v=action70';
 // Engine boundary: no DOM, audio, animation, storage, or wall-clock dependencies.
 export const DEFAULT_RULES=Object.freeze({columns:6,rows:7,colors:6,itemChance:.04,lineLength:5,prepSeconds:15,battleSeconds:60,enemyHP:22000,linePerTile:70,matchPerTile:9,maxCascade:5,feverThreshold:5,feverSeconds:8,feverMultiplier:2,comboWindow:4,seed:2718});
 export function seededRandom(seed){let a=Number(seed)>>>0;return()=>{a+=0x6D2B79F5;let t=a;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296;};}
