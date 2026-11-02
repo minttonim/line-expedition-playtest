@@ -134,3 +134,10 @@
 .puzzle-pop.skill{font-size:6.5cqw;line-height:1.1;animation:comboClearExit .7s ease both}
 .puzzle-pop.score .score-recipe{max-height:2.5em;overflow:hidden}
 @keyframes comboClearExit{0%{transform:translateX(-30%) scale(.7);opacity:0}20%,72%{transform:translateX(0) scale(1);opacity:1}100%{transform:translateX(45%) scale(.95);opacity:0}}
+
+.recipe-book{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+.recipe-card{padding:12px;border:1px solid #d7cfb9;border-radius:8px;background:#faf6e9}
+.recipe-card header{display:flex;justify-content:space-between;gap:5px;font-size:13px;align-items:center}
+.recipe-card header strong{color:#9e6728;white-space:nowrap}.recipe-pattern{display:grid;gap:3px;width:90px;margin:14px auto 2px}
+.recipe-pattern i{aspect-ratio:1;border-radius:40%;min-height:12px}.recipe-pattern .filled{background:#74a99b;box-shadow:inset 2px 2px #b1d3b833,inset -1px -2px #476c6233}.recipe-pattern .empty{background:#e8e3d733}
+#recipeBookBtn{white-space:nowrap;margin-left:auto}.under-phone{flex-wrap:wrap;gap:8px}
