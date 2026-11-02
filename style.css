@@ -148,5 +148,5 @@
 .puzzle-pop.score.recipe-score .score-recipe{font-size:8cqw;line-height:1.2;max-height:2.4em;color:#fff2af;margin-bottom:1cqw}
 
 /* All groups preview together before a short, readable sequential burst. */
-.connecting-path{animation-duration:.1s}
-.recipe-connections .connecting-path{animation-duration:.3s}
+.connecting-path{animation-duration:.12s}
+.recipe-connections .connecting-path{animation-duration:.47s}
