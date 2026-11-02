@@ -160,3 +160,5 @@
 .hero-card[data-hero="cleric"]>img,.hero-card[data-hero="shaman"]>img,.hero-card[data-hero="guardian"]>img{width:96%;height:85%;left:2%;top:2%;object-fit:cover;object-position:center top;border-radius:8px;}
 
 .skill-sprite-window{position:absolute;overflow:hidden;pointer-events:none;transform-origin:center;isolation:isolate}.skill-sprite-sheet{position:absolute;left:0;top:0;width:200%;height:200%;max-width:none!important;object-fit:fill;pointer-events:none;will-change:transform}
+
+.game.settling .board .tile:disabled{opacity:1}
