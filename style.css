@@ -146,3 +146,7 @@
 .recipe-connections .connecting-path{stroke:#fff4be;stroke-width:5;filter:drop-shadow(0 0 4px var(--connection-color));animation:connectStroke .6s ease-out forwards}
 .puzzle-pop.score.recipe-score{font-size:22cqw;color:#ffe285;text-shadow:0 5px #734020,2px 0 #734020,-2px 0 #734020,0 -2px #734020,0 0 14px #ffb95766}
 .puzzle-pop.score.recipe-score .score-recipe{font-size:8cqw;line-height:1.2;max-height:2.4em;color:#fff2af;margin-bottom:1cqw}
+
+/* All groups preview together before a short, readable sequential burst. */
+.connecting-path{animation-duration:.1s}
+.recipe-connections .connecting-path{animation-duration:.3s}
