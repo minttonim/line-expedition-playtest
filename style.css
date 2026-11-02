@@ -150,3 +150,7 @@
 /* All groups preview together before a short, readable sequential burst. */
 .connecting-path{animation-duration:.12s}
 .recipe-connections .connecting-path{animation-duration:.47s}
+
+.recipe-jackpot{padding:15px;margin:14px 0;border:2px solid #d7ac50;border-radius:9px;background:#fff0c8;text-align:center;color:#82531c}.recipe-jackpot>b{font-size:19px}.recipe-jackpot p{margin-bottom:0}
+.puzzle-pop.score.all-clear-score{font-size:24cqw;color:#fff2ad;text-shadow:0 5px #8d481b,2px 0 #8d481b,-2px 0 #8d481b,0 -2px #8d481b,0 0 20px #ffbd6388}
+.puzzle-pop.score.all-clear-score .score-recipe{font-size:10cqw;color:#ffed85}

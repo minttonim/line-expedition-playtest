@@ -1,3 +1,5 @@
+export const ALL_CLEAR_RECIPE=Object.freeze({name:'올 클리어',multiplier:6});
+export function isFullBoardClear(cells,rules){const size=rules.rows*rules.columns,unique=new Set(cells);return unique.size===size&&[...unique].every(i=>Number.isInteger(i)&&i>=0&&i<size);}
 // # is a same-color stone; . must remain outside that same-color group.
 export const SHAPE_RECIPES=Object.freeze([
  {id:'small-cross',name:'작은 십자',multiplier:1.9,pattern:['.#.','###','.#.']},

@@ -1,4 +1,4 @@
-import {connectedShapeTrace} from './shape-trace.mjs?v=action72';
+import {connectedShapeTrace} from './shape-trace.mjs?v=action73';
 const hues=['#e69576','#a4d3e8','#a4bd82','#e1c77e','#b09cdb','#e0e6df','#ecc487','#edc88e','#f4e1a0'];
 // Gameplay cues stay visible regardless of browser/OS motion preferences.
 const reduced=()=>false;
