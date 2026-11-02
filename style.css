@@ -141,3 +141,8 @@
 .recipe-card header strong{color:#9e6728;white-space:nowrap}.recipe-pattern{display:grid;gap:3px;width:90px;margin:14px auto 2px}
 .recipe-pattern i{aspect-ratio:1;border-radius:40%;min-height:12px}.recipe-pattern .filled{background:#74a99b;box-shadow:inset 2px 2px #b1d3b833,inset -1px -2px #476c6233}.recipe-pattern .empty{background:#e8e3d733}
 #recipeBookBtn{white-space:nowrap;margin-left:auto}.under-phone{flex-wrap:wrap;gap:8px}
+
+.recipe-connections{z-index:8}
+.recipe-connections .connecting-path{stroke:#fff4be;stroke-width:5;filter:drop-shadow(0 0 4px var(--connection-color));animation:connectStroke .6s ease-out forwards}
+.puzzle-pop.score.recipe-score{font-size:22cqw;color:#ffe285;text-shadow:0 5px #734020,2px 0 #734020,-2px 0 #734020,0 -2px #734020,0 0 14px #ffb95766}
+.puzzle-pop.score.recipe-score .score-recipe{font-size:8cqw;line-height:1.2;max-height:2.4em;color:#fff2af;margin-bottom:1cqw}
