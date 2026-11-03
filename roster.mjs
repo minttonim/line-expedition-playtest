@@ -1,10 +1,10 @@
 export const HEROES=Object.freeze([
  {id:'knight',name:'기사',attribute:'불',color:0,tint:'#d78168',popup:'FIRE BURST!'},
  {id:'mage',name:'마법사',attribute:'물',color:1,tint:'#83bed6',popup:'WATER WAVE!'},
- {id:'ranger',name:'정찰병',attribute:'풀',color:2,tint:'#a5bc7c',popup:'PIERCE!'},
+ {id:'ranger',name:'정찰병',attribute:'풀',color:2,tint:'#a5bc7c',popup:'FOREST GATHER!'},
  {id:'cleric',name:'사제',attribute:'빛',color:3,tint:'#dfbd71',popup:'SUN CROSS!'},
  {id:'shaman',name:'주술사',attribute:'어둠',color:4,tint:'#ad91bd',popup:'MOON ECLIPSE!'},
- {id:'guardian',name:'수호자',attribute:'서리',color:5,tint:'#a0d8dc',popup:'FROST BREAK!'}
+ {id:'guardian',name:'수호자',attribute:'서리',color:5,tint:'#a0d8dc',popup:'FROST FORGE!'}
 ]);
 export const EXTRA_PREP_SKILLS=Object.freeze([
  {name:'새벽의 세 빛',description:'무작위 가로 연속 3칸을 빛으로 변환',color:3},
@@ -12,9 +12,9 @@ export const EXTRA_PREP_SKILLS=Object.freeze([
  {name:'빙결 정렬',description:'무작위 세로 한 줄을 같은 색끼리 정렬'}
 ]);
 export const EXTRA_SKILLS=Object.freeze([
- {name:'태양의 십자',color:'#ffe29b',axis:'cross',description:'무작위 중심에서 가로·세로 십자 제거'},
- {name:'월식',color:'#c5a6db',axis:'area',description:'무작위 중심의 3×3 영역을 제거'},
- {name:'서리 파쇄',color:'#b5f1ed',axis:'row',description:'무작위 가로 한 줄을 얼음 파동으로 제거'}
+ {name:'태양의 십자',role:'넓은 십자',color:'#ffe29b',axis:'cross',description:'무작위 중심에서 가로·세로 십자 제거'},
+ {name:'월식',role:'국소 제거',color:'#c5a6db',axis:'area',description:'무작위 중심의 3×3 영역을 제거'},
+ {name:'서리 연성',role:'아이템 제작',color:'#b5f1ed',axis:'items',description:'무작위 일반 돌 2개를 폭탄·십자 아이템으로 만듦 · 매치에 포함되면 발동'}
 ]);
 export function chargePartyForCells(board,cells,excludedHero=null,party=[0,1,2]){
  const gain=party.map(()=>0);
@@ -23,6 +23,14 @@ export function chargePartyForCells(board,cells,excludedHero=null,party=[0,1,2])
 }
 export function planExtraSkill(hero,phase,board,ids,index,reserved=new Set(),columns=6){
  const free=i=>board[i]!==null&&!reserved.has(ids[i]),row=Math.floor(index/columns),col=index%columns,rows=Math.ceil(board.length/columns),axis=phase==='prep'?'column':EXTRA_SKILLS[hero-3].axis;
+ if(hero===5&&phase==='battle'){
+  if(!free(index)||!Number.isInteger(board[index])||board[index]<0||board[index]>=6)return null;
+  const candidates=board.map((_,i)=>i).filter(i=>i!==index&&free(i)&&Number.isInteger(board[i])&&board[i]>=0&&board[i]<6);
+  const distance=i=>Math.abs(Math.floor(i/columns)-row)+Math.abs(i%columns-col);
+  candidates.sort((a,b)=>distance(b)-distance(a)||a-b);
+  if(!candidates.length)return null;
+  return{hero,phase,kind:'createItems',axis:'items',cells:[index,candidates[0]],itemTypes:[6,7],index};
+ }
  if(axis==='area'&&(row===0||row===rows-1||col===0||col===columns-1))return null;
  const range=board.map((_,i)=>i).filter(i=>{const r=Math.floor(i/columns),c=i%columns;return free(i)&&(axis==='row'?r===row:axis==='cross'?r===row||c===col:axis==='area'?Math.abs(r-row)<=1&&Math.abs(c-col)<=1:c===col);});
  if(phase==='prep'){

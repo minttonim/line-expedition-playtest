@@ -175,3 +175,8 @@
 .battle-scene .puzzle-pop.fever-entry{top:28%;font-size:13cqw;animation-duration:.9s}
 
 .battle-scene .puzzle-pop.item{left:3%;width:60%;margin-top:0;font-size:5cqw;line-height:1.1;animation-duration:.65s}
+
+/* Utility skills mark the stones they build without a clear-preview square. */
+.tile.skill-gathered::after,.tile.skill-forged::after{content:'';position:absolute;inset:1%;border-radius:43%;border:2px solid #c5e58a;box-shadow:0 0 10px #a5d86a99;pointer-events:none;animation:utilityStoneHalo .65s ease-in-out 2 alternate}
+.tile.skill-forged::after{border-color:#c4eff9;box-shadow:0 0 12px #90d7ef99}
+@keyframes utilityStoneHalo{from{opacity:.4;transform:scale(.96)}to{opacity:1;transform:scale(1.07)}}
