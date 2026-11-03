@@ -158,7 +158,7 @@
 /* Art-only cut-ins sweep through the battlefield and behind the usable cards. */
 .party-bar{z-index:18}
 .skill-cutin{position:absolute;left:0;right:0;top:0;height:var(--cutin-height);z-index:17;overflow:hidden;pointer-events:none;isolation:isolate}
-.skill-cutin img{position:absolute;left:-16%;bottom:0;width:132%;height:100%;max-width:none;object-fit:contain;object-position:center bottom;pointer-events:none;filter:drop-shadow(0 4px 5px #13252b66);will-change:transform,opacity;animation:cutinArtSweep 1.25s linear both}
+.skill-cutin img{position:absolute;left:-16%;bottom:6cqw;width:132%;height:100%;max-width:none;object-fit:contain;object-position:center bottom;pointer-events:none;filter:drop-shadow(0 4px 5px #13252b66);will-change:transform,opacity;animation:cutinArtSweep 1.25s linear both}
 @keyframes cutinArtSweep{0%{transform:translateX(-105%);opacity:0}18%{transform:translateX(-5%);opacity:1;animation-timing-function:linear}68%{transform:translateX(5%);opacity:1;animation-timing-function:cubic-bezier(.55,0,1,.65)}100%{transform:translateX(105%);opacity:0}}
 
 /* Keep number feedback off the stones; large numbers belong at the impact. */
