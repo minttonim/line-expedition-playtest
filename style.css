@@ -160,3 +160,18 @@
 .skill-cutin{position:absolute;left:0;right:0;top:0;height:var(--cutin-height);z-index:17;overflow:hidden;pointer-events:none;isolation:isolate}
 .skill-cutin img{position:absolute;left:-16%;bottom:0;width:132%;height:100%;max-width:none;object-fit:contain;object-position:center bottom;pointer-events:none;filter:drop-shadow(0 4px 5px #13252b66);will-change:transform,opacity;animation:cutinArtSweep 1.25s linear both}
 @keyframes cutinArtSweep{0%{transform:translateX(-105%);opacity:0}18%{transform:translateX(-5%);opacity:1;animation-timing-function:linear}68%{transform:translateX(5%);opacity:1;animation-timing-function:cubic-bezier(.55,0,1,.65)}100%{transform:translateX(105%);opacity:0}}
+
+/* Keep number feedback off the stones; large numbers belong at the impact. */
+.score-flight{position:absolute;z-index:30;pointer-events:none;width:max-content;max-width:44%;font-size:6.5cqw;line-height:1;font-weight:1000;font-variant-numeric:tabular-nums;letter-spacing:-.2cqw;color:#ffe29a;text-shadow:0 2px #49321f,1px 0 #49321f,-1px 0 #49321f;transform:translate(-50%,-50%);white-space:nowrap}
+.puzzle-pop.combo{left:3.5%;width:44%;font-size:7cqw;text-align:left;animation-duration:.65s}
+.damage-layer{z-index:19}
+.damage-float.enemy-score{right:auto;width:max-content;max-width:92%;font-size:18cqw;line-height:1;text-align:center;font-weight:1000;font-style:normal;font-variant-numeric:tabular-nums;color:#ffe29a;text-shadow:0 4px #734020,2px 0 #734020,-2px 0 #734020,0 -2px #734020,0 0 12px #ffb95766;transform:translate(-50%,-50%);animation:none;z-index:19}
+.enemy-score strong{display:block;font-size:inherit;letter-spacing:-.5cqw;white-space:nowrap}
+.enemy-score small{display:block;font-size:3.6cqw;line-height:1.25;color:#fff2b7;font-weight:900;letter-spacing:0}
+.enemy-score .impact-recipe{max-width:80cqw;max-height:2.5em;overflow:hidden;margin-bottom:.8cqw}
+.enemy-score .impact-multiplier{font-size:4.4cqw;color:#fff0a3;white-space:nowrap}
+.fever-active .board::after{content:none;display:none}
+.fever-active .board::before{border-width:4px}
+.battle-scene .puzzle-pop.fever-entry{top:28%;font-size:13cqw;animation-duration:.9s}
+
+.battle-scene .puzzle-pop.item{left:3%;width:60%;margin-top:0;font-size:5cqw;line-height:1.1;animation-duration:.65s}
