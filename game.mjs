@@ -1,12 +1,12 @@
-import {canFinishSettlement} from './settlement.mjs?v=action88';
-import {showExtraPuzzleVFX} from './extra-vfx.mjs?v=action88';
-import {HEROES,EXTRA_PREP_SKILLS,EXTRA_SKILLS,chargePartyForCells,planExtraSkill,randomExtraTarget,planExtraPrep} from './roster.mjs?v=action88';
-import {connectedShapeTrace} from './shape-trace.mjs?v=action88';
-import {SHAPE_RECIPES,ALL_CLEAR_RECIPE} from './recipes.mjs?v=action88';
-import {createComboState,comboCount,beginComboProcessing,addComboHit,endComboProcessing} from './combo.mjs?v=action88';
-import {PREP_SKILLS as BASE_PREP,SKILLS as BASE_SKILLS,SKILL_CHARGE,chargeOverTime,skillAvailability,applyPuzzlePlan,planTargetSkill as basePlanTarget,randomSkillTarget as baseRandomTarget} from './skills.mjs?v=action88';
-import {DEFAULT_RULES,seededRandom,newBoard,adjacent,swap,shift,detect,detectPrepared,detectSkillClear,collapse,scoreDetection,rating} from './rules.mjs?v=action88';
-import {captureStones,animateStones,connectLines,burst,projectile,phaseAnnouncement,actionAnnouncement,countdown,motionTime} from './effects.mjs?v=action88';
+import {canFinishSettlement} from './settlement.mjs?v=action89';
+import {showExtraPuzzleVFX} from './extra-vfx.mjs?v=action89';
+import {HEROES,EXTRA_PREP_SKILLS,EXTRA_SKILLS,chargePartyForCells,planExtraSkill,randomExtraTarget,planExtraPrep} from './roster.mjs?v=action89';
+import {connectedShapeTrace} from './shape-trace.mjs?v=action89';
+import {SHAPE_RECIPES,ALL_CLEAR_RECIPE} from './recipes.mjs?v=action89';
+import {createComboState,comboCount,beginComboProcessing,addComboHit,endComboProcessing} from './combo.mjs?v=action89';
+import {PREP_SKILLS as BASE_PREP,SKILLS as BASE_SKILLS,SKILL_CHARGE,chargeOverTime,skillAvailability,applyPuzzlePlan,planTargetSkill as basePlanTarget,randomSkillTarget as baseRandomTarget} from './skills.mjs?v=action89';
+import {DEFAULT_RULES,seededRandom,newBoard,adjacent,swap,shift,detect,detectPrepared,detectSkillClear,collapse,scoreDetection,rating} from './rules.mjs?v=action89';
+import {captureStones,animateStones,connectLines,burst,projectile,phaseAnnouncement,actionAnnouncement,countdown,motionTime} from './effects.mjs?v=action89';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const names=['불','물','풀','빛','어둠','서리','폭탄','십자 폭발','시간 보너스'],modeNames={adjacent:'인접 교환',free:'자유 교환',shift:'행·열 밀기'},modeDescriptions={adjacent:'가까운 두 블록의 위치를 바꿔 작은 해법을 찾습니다.',free:'멀리 떨어진 두 블록도 바꿔 긴 라인을 설계합니다.',shift:'한 줄을 밀어 판 전체의 흐름을 바꿉니다.'},hints={adjacent:'이웃한 두 돌을 탭하거나 드래그',free:'자유 교환 · 마지막 이동 1초 후 발동',shift:'돌을 잡고 좌우·위아래로 한 줄 밀기'};
 let freeResolveTimer=null;let lastCountdown=null;let generation=0,state,selected=null,paint=null,leaderRemaining=0,pointer=null,toastTimeout,sound=false,audioContext;
@@ -138,4 +138,4 @@ updateLeaderOptions();startNew();renderHistory();
 
 
 
-document.querySelector('.under-phone').insertAdjacentHTML('beforeend','<span style="font-size:10px;white-space:nowrap">액션 88</span>');
+document.querySelector('.under-phone').insertAdjacentHTML('beforeend','<span style="font-size:10px;white-space:nowrap">액션 89</span>');
